@@ -52,5 +52,12 @@ func main() {
 	t = time.Date(2011, time.Month(3), 12, 15, 30, 20, 2, now.Location())
 	fmt.Println(t.Format(layout))
 
-	fmt.Println(time.Parse("2006-01-02 15:04:05", "2021-01-10 15:01:02"))
+
+	fmt.Println(time.Parse("2006-01-02 15:04:05", "2021-01-10 15:01:02")) 
+
+	t, _ := time.ParseInLocation("2006-01-02 15:04:05", time.Now().Format("2006-01-02 15:04:05"), time.Local)
+	fmt.Println(t)  
+	// 输出 2021-01-10 17:28:50 +0800 CST
+	// time.Local 指定本地时间
+
 }

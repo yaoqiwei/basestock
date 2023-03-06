@@ -36,4 +36,21 @@ func main() {
 	fmt.Println(now.Location())
 	// 返回一年中第几天
 	fmt.Println(now.YearDay())
+
+	fmt.Println(now.Format("2006-01-02 15:04:05"))
+	fmt.Println(now.Format("2006-01-02"))
+	fmt.Println(now.Format("15:04:05"))
+	fmt.Println(now.Format("2006/01/02 15:04"))
+	fmt.Println(now.Format("15:04 2006/01/02"))
+
+	layout := "2006-01-02 15:04:05"
+	t := time.Unix(now.Unix(),0)    // 参数分别是：秒数,纳秒数
+	fmt.Println(t.Format(layout))
+
+	//根据指定时间返回 time.Time 类型
+	//分别指定年，月，日，时，分，秒，纳秒，时区
+	t = time.Date(2011, time.Month(3), 12, 15, 30, 20, 2, now.Location())
+	fmt.Println(t.Format(layout))
+
+	fmt.Println(time.Parse("2006-01-02 15:04:05", "2021-01-10 15:01:02"))
 }
